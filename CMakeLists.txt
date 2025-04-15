@@ -10,6 +10,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS   ON)
 option(ENABLE_WARNINGS "Enable compiler warnings for a target" ON)
 option(ENABLE_WARNINGS_AS_ERRORS "Enable compiler warnings as errors" ON)
 
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_RELEASE} -D_DEBUG")
+
+if (${IS_DEBUG_BUILD})
+    message(STATUS "We are in Debug")
+else()
+    message(STATUS "We are in Release")
+endif ()
+
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
 
