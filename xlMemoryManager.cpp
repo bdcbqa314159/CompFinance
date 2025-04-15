@@ -31,7 +31,7 @@ MemoryManager* vpmm;
 //
 // See MemoryPool.h for more details
 //
-LPSTR MGetTempMemory(int cByte)
+LPSTR MGetTempMemory(size_t cByte)
 {
 	return MemoryManager::GetManager()->CPP_GetTempMemory(cByte);
 }

@@ -52,7 +52,7 @@ private:
 extern "C"
 {
 #endif
-	LPSTR MGetTempMemory(int cByte);
+	LPSTR MGetTempMemory(size_t cByte);
 	void MFreeAllTempMemory();
 #ifdef __cplusplus
 }

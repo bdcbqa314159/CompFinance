@@ -74,7 +74,7 @@
 #include <wchar.h>
 #include "xlcall.h"
 #include "xlframework.h"
-#include "xlMemorymanager.h"
+#include "xlMemoryManager.h"
 #include <stdarg.h>
 
 
