@@ -1,0 +1,6 @@
+#ifndef AAD_LIBRARY
+#define AAD_LIBRARY
+
+#include "./includes/aad_library.hpp"
+
+#endif //AAD_LIBRARY
