@@ -21,6 +21,7 @@ As long as this comment is preserved at the top of the file
 #include <future>
 #include <chrono>
 #include <thread>
+#include <functional>
 #include "ConcurrentQueue.h"
 
 using namespace std;

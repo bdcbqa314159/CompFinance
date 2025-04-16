@@ -1,8 +1,8 @@
 #pragma once
 #ifndef AAD_LIBRARY_HPP
 #define AAD_LIBRARY_HPP
+#include "exported.hpp"
 
-__declspec(dllexport)
-void aad_lib();
+EXPORTED void aad_lib();
 
 #endif //AAD_LIBRARY_HPP

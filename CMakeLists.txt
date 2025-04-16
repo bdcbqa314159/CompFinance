@@ -30,4 +30,4 @@ endif()
 
 add_subdirectory(aad_library)
 
-add_subdirectory(aad_work)
+# add_subdirectory(aad_work)

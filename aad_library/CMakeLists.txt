@@ -6,11 +6,11 @@ set(sources src/aad_library.cpp
             src/mcBase.cpp
             src/sobol.cpp
             src/ThreadPool.cpp
-            src/xlcall.cpp
-            src/xlExport.cpp
-            src/xlframework.c
-            src/xlMemoryManager.cpp
-            src/xlMemoryPool.cpp
+            # src/xlcall.cpp
+            # src/xlExport.cpp
+            # src/xlframework.c
+            # src/xlMemoryManager.cpp
+            # src/xlMemoryPool.cpp
 
 )
 
