@@ -214,13 +214,19 @@ private:
 
     }
 
-    //  If T = Number : put on tape
-    template <>
-    void putParametersOnTapeT<Number>()
+    void putParametersOnTapeT()
     {
-        for (Number* param : parameters()) param->putOnTape();
+
     }
 };
+
+// gcc does not allow inline specialization
+//  If T = Number : put on tape
+    
+template <> void Model<Number>::putParametersOnTapeT()
+{
+    for (Number* param : parameters()) param->putOnTape();
+}
 
 //  Random number generators
 //  ========================
