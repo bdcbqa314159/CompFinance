@@ -1,6 +1,30 @@
 #ifndef AAD_LIBRARY
 #define AAD_LIBRARY
 
-#include "./includes/aad_library.hpp"
+#include "./includes/AAD.h"
+#include "./includes/AADExpr.h"
+#include "./includes/AADNode.h"
+#include "./includes/AADNumber.h"
+#include "./includes/AADTape.h"
+#include "./includes/ConcurrentQueue.h"
+#include "./includes/ThreadPool.h"
+#include "./includes/analytics.h"
+#include "./includes/choldc.h"
+#include "./includes/gaussians.h"
+#include "./includes/interp.h"
+#include "./includes/ivs.h"
+#include "./includes/main.h"
+#include "./includes/matrix.h"
+#include "./includes/mcBase.h"
+#include "./includes/mcMdl.h"
+#include "./includes/mcMdlBS.h"
+#include "./includes/mcMdlDupire.h"
+#include "./includes/mcPrd.h"
+#include "./includes/mcPrdMulti.h"
+#include "./includes/mrg32k3a.h"
+#include "./includes/sobol.h"
+#include "./includes/store.h"
+#include "./includes/toyCode.h"
+#include "./includes/utility.h"
 
 #endif  // AAD_LIBRARY
