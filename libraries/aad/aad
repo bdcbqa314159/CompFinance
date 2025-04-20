@@ -3,4 +3,4 @@
 
 #include "./includes/aad_library.hpp"
 
-#endif //AAD_LIBRARY
+#endif  // AAD_LIBRARY
