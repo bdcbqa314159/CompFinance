@@ -21,7 +21,7 @@ As long as this comment is preserved at the top of the file
 
 //  The custom number type
 
-#include <algorithm>
+#include <algorithm>  // IWYU pragma: keep
 
 #include "AADTape.h"
 #include "gaussians.h"

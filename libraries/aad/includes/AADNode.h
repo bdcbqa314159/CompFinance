@@ -24,7 +24,7 @@ As long as this comment is preserved at the top of the file
 //  Unchanged for AADET of chapter 15
 
 #include <algorithm>
-#include <exception>
+#include <exception>  // IWYU pragma: keep
 using namespace std;
 
 class Node {
