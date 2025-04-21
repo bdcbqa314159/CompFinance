@@ -21,7 +21,9 @@ As long as this comment is preserved at the top of the file
 
 //  Defines expressions and the Number type
 
+//  So we can instrument Gaussians like standard math functions
 #include "AADTape.h"
+#include "gaussians.h"
 #include <algorithm>
 
 //  Base CRTP expression class
