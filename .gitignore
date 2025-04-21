@@ -317,3 +317,5 @@ $RECYCLE.BIN/
 *.*.*.opendb
 *.*.*.*.opendb
 
+build
+out
