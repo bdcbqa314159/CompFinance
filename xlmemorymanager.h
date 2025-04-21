@@ -29,7 +29,7 @@ public:
 
 	static MemoryManager* GetManager();
 
-	LPSTR CPP_GetTempMemory(int cByte);
+	LPSTR CPP_GetTempMemory(size_t cByte);
 	void CPP_FreeAllTempMemory();
 
 private:
@@ -37,8 +37,8 @@ private:
 	MemoryPool* GetMemoryPool(DWORD dwThreadID);
 	void GrowPools();
 
-	int m_impCur;		// Current number of pools
-	int m_impMax;		// Max number of mem pools
+	size_t m_impCur;		// Current number of pools
+	size_t m_impMax;		// Max number of mem pools
 	MemoryPool* m_rgmp;	// Storage for the memory pools
 };
 
@@ -52,7 +52,7 @@ private:
 extern "C"
 {
 #endif
-	LPSTR MGetTempMemory(int cByte);
+	LPSTR MGetTempMemory(size_t cByte);
 	void MFreeAllTempMemory();
 #ifdef __cplusplus
 }

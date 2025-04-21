@@ -31,7 +31,7 @@ MemoryManager* vpmm;
 //
 // See MemoryPool.h for more details
 //
-LPSTR MGetTempMemory(int cByte)
+LPSTR MGetTempMemory(size_t cByte)
 {
 	return MemoryManager::GetManager()->CPP_GetTempMemory(cByte);
 }
@@ -95,7 +95,7 @@ MemoryManager::~MemoryManager(void)
 // thread for a set number of bytes.  Returns 0 if there was a
 // failure in getting the memory.
 //
-LPSTR MemoryManager::CPP_GetTempMemory(int cByte)
+LPSTR MemoryManager::CPP_GetTempMemory(size_t cByte)
 {
 	DWORD dwThreadID;
 	MemoryPool* pmp;
