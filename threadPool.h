@@ -20,9 +20,11 @@ As long as this comment is preserved at the top of the file
 
 #include <future>
 #include <thread>
+#include <chrono>
 #include "ConcurrentQueue.h"
 
 using namespace std;
+using namespace std::chrono_literals;
 
 typedef packaged_task<bool(void)> Task;
 typedef future<bool> TaskHandle;
