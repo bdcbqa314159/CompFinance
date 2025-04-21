@@ -15,8 +15,10 @@ As long as this comment is preserved at the top of the file
 */
 
 #include "AAD.h"
-#include <algorithm>
+
 #include <string.h>
+
+#include <algorithm>  // IWYU pragma: keep
 
 //  Statics
 

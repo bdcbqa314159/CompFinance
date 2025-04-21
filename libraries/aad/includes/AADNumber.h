@@ -23,6 +23,7 @@ As long as this comment is preserved at the top of the file
 
 #include <algorithm>  // IWYU pragma: keep
 
+#include "AADNode.h"
 #include "AADTape.h"
 #include "gaussians.h"
 
