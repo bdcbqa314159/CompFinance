@@ -10,30 +10,27 @@
 //              pointer is set back to the beginning of the array.
 //
 //              Each pool has MEMORYSIZE bytes of storage space available to it
-// 
+//
 // Platform:    Microsoft Windows
 //
 ///***************************************************************************
-
+#ifdef WIN32
 #include "xlMemoryPool.h"
 
 //
 // Constructor creates the memory to be used by the pool
 // and starts the index at the beginning.
 //
-MemoryPool::MemoryPool(void)
-{
-	m_rgchMemBlock = new char[MEMORYSIZE];
-	m_ichOffsetMemBlock = 0;
-	m_dwOwner = (DWORD)-1;
+MemoryPool::MemoryPool(void) {
+  m_rgchMemBlock = new char[MEMORYSIZE];
+  m_ichOffsetMemBlock = 0;
+  m_dwOwner = (DWORD)-1;
 }
 
 //
 // An empty destructor - see reasoning below
 //
-MemoryPool::~MemoryPool(void)
-{
-}
+MemoryPool::~MemoryPool(void) {}
 
 //
 // Unable to delete the memory block when we delete the pool,
@@ -41,10 +38,7 @@ MemoryPool::~MemoryPool(void)
 // method will actually delete the pool's memory
 //
 
-void MemoryPool::ClearPool(void)
-{
-	delete [] m_rgchMemBlock;
-}
+void MemoryPool::ClearPool(void) { delete[] m_rgchMemBlock; }
 
 //
 // Advances the index forward by the given number of bytes.
@@ -52,28 +46,23 @@ void MemoryPool::ClearPool(void)
 // is not allowed, this method will return 0. Can be called
 // and used exactly as malloc().
 //
-LPSTR MemoryPool::GetTempMemory(size_t cBytes)
-{
-	LPSTR lpMemory;
+LPSTR MemoryPool::GetTempMemory(size_t cBytes) {
+  LPSTR lpMemory;
 
-	if (m_ichOffsetMemBlock + cBytes > MEMORYSIZE || cBytes <= 0)
-	{
-		return 0;
-	}
-	else
-	{
-		lpMemory = (LPSTR) m_rgchMemBlock + m_ichOffsetMemBlock;
-		m_ichOffsetMemBlock += cBytes;
+  if (m_ichOffsetMemBlock + cBytes > MEMORYSIZE || cBytes <= 0) {
+    return 0;
+  } else {
+    lpMemory = (LPSTR)m_rgchMemBlock + m_ichOffsetMemBlock;
+    m_ichOffsetMemBlock += cBytes;
 
-		return lpMemory;
-	}
+    return lpMemory;
+  }
 }
 
 //
 // Frees all the temporary memory by setting the index for
 // available memory back to the beginning
 //
-void MemoryPool::FreeAllTempMemory()
-{
-	m_ichOffsetMemBlock = 0;
-}
+void MemoryPool::FreeAllTempMemory() { m_ichOffsetMemBlock = 0; }
+
+#endif  // WIN32

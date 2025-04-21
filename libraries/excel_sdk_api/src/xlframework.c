@@ -68,6 +68,7 @@
 //
 //***************************************************************************
 
+#ifdef WIN32
 
 #include <windows.h>
 #include <malloc.h>
@@ -957,3 +958,5 @@ BOOL XLOperToXLOper12(LPXLOPER pxloper, LPXLOPER12 pxloper12)
 	}
 	return fRet;
 }
+
+#endif //WIN32

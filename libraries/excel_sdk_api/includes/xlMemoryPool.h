@@ -5,11 +5,12 @@
 //				memory manager.  Each pool is a block of memory set
 //				aside for a specific thread for use in creating temporary
 //				XLOPER/XLOPER12's in the framework
-// 
+//
 // Platform:    Microsoft Windows
 //
 ///***************************************************************************
 
+#ifdef WIN32
 #pragma once
 
 #define WIN32_LEAN_AND_MEAN
@@ -19,18 +20,19 @@
 // Total amount of memory to allocate for all temporary XLOPERs
 //
 
-#define MEMORYSIZE   16777216 
+#define MEMORYSIZE 16777216
 
-class MemoryPool
-{
-public:
-	MemoryPool(void);
-	~MemoryPool(void);
-	void ClearPool(void);
-	LPSTR GetTempMemory(size_t cBytes);
-	void FreeAllTempMemory();
+class MemoryPool {
+ public:
+  MemoryPool(void);
+  ~MemoryPool(void);
+  void ClearPool(void);
+  LPSTR GetTempMemory(size_t cBytes);
+  void FreeAllTempMemory();
 
-	DWORD m_dwOwner;			// ID of ownning thread
-	char* m_rgchMemBlock;		// Memory for temporary XLOPERs
-	size_t m_ichOffsetMemBlock;	// Offset of next memory block to allocate
+  DWORD m_dwOwner;             // ID of ownning thread
+  char* m_rgchMemBlock;        // Memory for temporary XLOPERs
+  size_t m_ichOffsetMemBlock;  // Offset of next memory block to allocate
 };
+
+#endif  // WIN32
