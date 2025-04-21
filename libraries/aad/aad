@@ -1,30 +1,8 @@
 #ifndef AAD_LIBRARY
 #define AAD_LIBRARY
 
-#include "./includes/AAD.h"  // IWYU pragma: keep
-// #include "./includes/AADExpr.h"          // IWYU pragma: keep
-// #include "./includes/AADNode.h"          // IWYU pragma: keep
-// #include "./includes/AADNumber.h"        // IWYU pragma: keep
-// #include "./includes/AADTape.h"          // IWYU pragma: keep
-// #include "./includes/ConcurrentQueue.h"  // IWYU pragma: keep
+#include "./includes/AAD.h"         // IWYU pragma: keep
 #include "./includes/ThreadPool.h"  // IWYU pragma: keep
-// #include "./includes/analytics.h"    // IWYU pragma: keep
-// #include "./includes/choldc.h"       // IWYU pragma: keep
-// #include "./includes/gaussians.h"    // IWYU pragma: keep
-// #include "./includes/interp.h"       // IWYU pragma: keep
-// #include "./includes/ivs.h"          // IWYU pragma: keep
-// #include "./includes/main.h"         // IWYU pragma: keep
-// #include "./includes/matrix.h"       // IWYU pragma: keep
-#include "./includes/mcBase.h"  // IWYU pragma: keep
-// #include "./includes/mcMdl.h"        // IWYU pragma: keep
-// #include "./includes/mcMdlBS.h"      // IWYU pragma: keep
-// #include "./includes/mcMdlDupire.h"  // IWYU pragma: keep
-// #include "./includes/mcPrd.h"        // IWYU pragma: keep
-// #include "./includes/mcPrdMulti.h"   // IWYU pragma: keep
-// #include "./includes/mrg32k3a.h"     // IWYU pragma: keep
-// #include "./includes/sobol.h"        // IWYU pragma: keep
-// #include "./includes/store.h"        // IWYU pragma: keep
-// #include "./includes/toyCode.h"      // IWYU pragma: keep
-// #include "./includes/utility.h"      // IWYU pragma: keep
+#include "./includes/mcBase.h"      // IWYU pragma: keep
 
 #endif  // AAD_LIBRARY
