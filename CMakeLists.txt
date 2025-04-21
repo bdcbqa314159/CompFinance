@@ -30,29 +30,4 @@ if(ENABLE_WARNINGS)
     include(Warnings)
 endif()
 
-#add_subdirectory(libraries)
-
-set(includes ./)
-set(sources ./AAD.cpp
-            ./mcBase.cpp
-            ./sobol.cpp
-            ./ThreadPool.cpp
-            ./xlcall.cpp
-            ./xlExport.cpp
-            ./xlframework.c
-            ./xlMemoryManager.cpp
-            ./xlMemoryPool.cpp
-
-)
-
-# assuming at the moment that we are only msvc
-
-set(AAD_LIB aad)
-
-add_compile_definitions(${AAD_LIB}_EXPORTS
-                        _WINDLL
-)
-
-add_library(${AAD_LIB} SHARED ${sources})
-target_include_directories(${AAD_LIB} PUBLIC ${includes})
-set_target_properties(${AAD_LIB} PROPERTIES SUFFIX ".xll")
+add_subdirectory(libraries)
