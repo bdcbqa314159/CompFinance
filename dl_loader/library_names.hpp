@@ -5,11 +5,11 @@
 #include <string>
 
 #ifdef __APPLE__
-// static const std::string LIBRARY_NAME = toupdate
+static const std::string LIBRARY_NAME = "toupdate";
 #endif
 
 #ifdef __linux__
-// static const std::string LIBRARY_NAME = toupdate
+static const std::string LIBRARY_NAME = "toupdate";
 #endif
 
 #ifdef WIN32

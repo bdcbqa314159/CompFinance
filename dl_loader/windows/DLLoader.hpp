@@ -6,7 +6,7 @@
 
 #include <Windows.h>
 
-#include "IDLLoader.hpp"
+#include "../IDLLoader.hpp"
 
 namespace dlloader {
 

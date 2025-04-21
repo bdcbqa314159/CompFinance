@@ -5,7 +5,10 @@
 #if defined(__linux__) || defined(__APPLE__)
 #include <dlfcn.h>
 
-#include "IDLLoader.hpp"
+#include <iostream>
+#include <string>
+
+#include "../IDLLoader.hpp"
 
 namespace dlloader {
 
