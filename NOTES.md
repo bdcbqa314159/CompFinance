@@ -2,7 +2,8 @@
 
 - cmake integration to allow cross platform deployment.
 - msvc: similar results, the xll is produced returns good results with xlsx spreadsheets. The sln file si produced as well and is independent from the repository source code.
-- gcc: on it...
+- gcc: compilation fine - all errors are gone
+- excel interface and excel sdk separated to give more flexibility to the project in case we want, for example give a python interface for linux/macos/windows
 
 - under windows is a bit tricky to work straight forward with cmake - the best is execute commands from the developper terminal of vs.
 
