@@ -133,5 +133,8 @@
     <ClCompile Include="sobol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="xlframework.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
