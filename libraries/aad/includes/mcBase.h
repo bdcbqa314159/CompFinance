@@ -23,10 +23,10 @@ As long as this comment is preserved at the top of the file
 #include "AAD.h"
 
 #include <algorithm>
-#include <iomanip>
+#include <iomanip> // IWYU pragma: keep
 #include <memory>
-#include <numeric>
-#include <sstream>
+#include <numeric> // IWYU pragma: keep
+#include <sstream> // IWYU pragma: keep
 #include <vector>
 
 using namespace std;
