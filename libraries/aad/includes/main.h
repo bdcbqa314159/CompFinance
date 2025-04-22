@@ -199,8 +199,20 @@ inline auto AADriskAggregate(const string &modelId, const string &productId,
 
   //  Aggregator
   auto aggregator = [&vnots](const vector<Number> &payoffs) {
-    return inner_product(payoffs.begin(), payoffs.end(), vnots.begin(),
-                         Number(0.0));
+    // return inner_product(payoffs.begin(), payoffs.end(), vnots.begin(),
+    //                      Number(0.0)); -> deprecation in c++20 - custom
+    //                      implementation (from cppreference)
+    auto it_first = payoffs.begin();
+    auto it_last = payoffs.end();
+    auto it_vnots = vnots.begin();
+    auto init = Number(0.0);
+
+    while (it_first != it_last) {
+      init += (*it_first) * (*it_vnots);
+      ++it_first;
+      ++it_vnots;
+    }
+    return init;
   };
 
   //  Simulate
@@ -238,7 +250,7 @@ inline auto AADriskAggregate(const string &modelId, const string &productId,
                                        simulResults.aggregated.end(), 0.0) /
                             num.numPath;
   results.paramIds = model->parameterLabels();
-  results.risks = move(simulResults.risks);
+  results.risks = std::move(simulResults.risks);
 
   return results;
 }
@@ -281,7 +293,7 @@ inline RiskReports AADriskMulti(const string &modelId, const string &productId,
 
   results.params = model->parameterLabels();
   results.payoffs = product->payoffLabels();
-  results.risks = move(simulResults.risks);
+  results.risks = std::move(simulResults.risks);
 
   //	Average values across paths
   const size_t nPayoffs = product->payoffLabels().size();
