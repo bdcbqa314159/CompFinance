@@ -87,7 +87,7 @@ public:
   }
 
   //	Memset
-  void memset(unsigned char value = 0) {
+  void myMemset(unsigned char value = 0) {
     for (auto &arr : data) {
 
       memset(&arr[0], value, block_size * sizeof(T));
