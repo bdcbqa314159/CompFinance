@@ -23,6 +23,7 @@ As long as this comment is preserved at the top of the file
 #include <array>
 #include <iterator>
 #include <list>
+#include <string.h>
 using namespace std;
 
 template <class T, size_t block_size> class blocklist {
@@ -88,7 +89,9 @@ public:
   //	Memset
   void memset(unsigned char value = 0) {
     for (auto &arr : data) {
-      std::memset(&arr[0], value, block_size * sizeof(T));
+
+      memset(&arr[0], value, block_size * sizeof(T));
+      
     }
   }
 
