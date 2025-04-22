@@ -76,7 +76,8 @@ public:
   //  Reset all adjoints to 0
   void resetAdjoints() {
     if (multi) {
-      myAdjointsMulti.memset(0);
+      //default is 0
+      myAdjointsMulti.myMemset();
     } else {
       for (Node &node : myNodes) {
         node.mAdjoint = 0;

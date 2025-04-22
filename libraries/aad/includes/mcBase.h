@@ -182,14 +182,16 @@ public:
 
 private:
   //  If T not Number : do nothing
-  template <class U> void putParametersOnTapeT() {}
+  template <class U> void putParametersOnTapeT() {}  
+};
 
-  //  If T = Number : put on tape
-  template <> void putParametersOnTapeT<Number>() {
+//  If T = Number : put on tape
+template <>
+template <> 
+inline void Model<Number>::putParametersOnTapeT<Number>() {
     for (Number *param : parameters())
       param->putOnTape();
   }
-};
 
 //  Random number generators
 //  ========================

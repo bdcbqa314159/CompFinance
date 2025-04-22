@@ -22,6 +22,7 @@ As long as this comment is preserved at the top of the file
 #include <chrono> // IWYU pragma: keep
 #include <future>
 #include <thread>
+#include <functional>
 
 using namespace std;
 using namespace std::chrono_literals;

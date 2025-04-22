@@ -5,6 +5,7 @@
 
 #include <mutex>
 #include <queue>
+#include <condition_variable>
 using namespace std;
 
 template <class T> class ConcurrentQueue {
