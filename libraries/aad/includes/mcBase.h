@@ -188,7 +188,7 @@ private:
 //  If T = Number : put on tape
 template <>
 template <> 
-void Model<Number>::putParametersOnTapeT<Number>() {
+inline void Model<Number>::putParametersOnTapeT<Number>() {
     for (Number *param : parameters())
       param->putOnTape();
   }
