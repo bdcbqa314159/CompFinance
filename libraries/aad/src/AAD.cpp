@@ -15,7 +15,7 @@ As long as this comment is preserved at the top of the file
 */
 
 #include "AAD.h"
-#include <algorithm>
+#include <algorithm> //IWYU pragma: keep
 
 //  Statics
 
@@ -23,4 +23,4 @@ size_t Node::numAdj = 1;
 bool Tape::multi = false;
 
 Tape globalTape;
-thread_local Tape* Number::tape = &globalTape;
+thread_local Tape *Number::tape = &globalTape;

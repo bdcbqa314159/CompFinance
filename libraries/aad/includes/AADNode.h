@@ -23,81 +23,73 @@ As long as this comment is preserved at the top of the file
 
 //  Unchanged for AADET of chapter 15
 
-#include <exception>
+#include <algorithm>
+#include <exception> // IWYU pragma: keep
 using namespace std;
 
-class Node 
-{
-	friend class Tape;
-	friend class Number;
-	friend auto setNumResultsForAAD(const bool, const size_t);
-	friend struct numResultsResetterForAAD;
+class Node {
+  friend class Tape;
+  friend class Number;
+  friend auto setNumResultsForAAD(const bool, const size_t);
+  friend struct numResultsResetterForAAD;
 
-    //  The adjoint(s) 
-	//	in single case, self held (chapter 10)
-	double			mAdjoint = 0;
-	//	in multi case, held separately and accessed by pointer (chapter 14)
-    double*         pAdjoints;  
+  //  The adjoint(s)
+  //	in single case, self held (chapter 10)
+  double mAdjoint = 0;
+  //	in multi case, held separately and accessed by pointer (chapter 14)
+  double *pAdjoints;
 
-	//  Data lives in separate memory
+  //  Data lives in separate memory
 
-    //  the n derivatives to arguments,
-    double*         pDerivatives;    
+  //  the n derivatives to arguments,
+  double *pDerivatives;
 
-    //  the n pointers to the adjoints of arguments
-    double**        pAdjPtrs;
+  //  the n pointers to the adjoints of arguments
+  double **pAdjPtrs;
 
-    //  Number of adjoints (results) to propagate, usually 1
-    //  See chapter 14
-    static size_t   numAdj;
+  //  Number of adjoints (results) to propagate, usually 1
+  //  See chapter 14
+  static size_t numAdj;
 
-    //  Number of childs (arguments)
-    const size_t    n;
+  //  Number of childs (arguments)
+  const size_t n;
 
 public:
+  Node(const size_t N = 0) : n(N) {}
 
-    Node(const size_t N = 0) : n(N) {}
+  //  Access to adjoint(s)
+  //	single
+  double &adjoint() { return mAdjoint; }
+  //	multi
+  double &adjoint(const size_t n) { return pAdjoints[n]; }
 
-    //  Access to adjoint(s)
-	//	single
-    double& adjoint() 
-    {
-		return mAdjoint;
-	}
-	//	multi
-	double& adjoint(const size_t n) { return pAdjoints[n]; }
-    
-    //  Back-propagate adjoints to arguments adjoints
+  //  Back-propagate adjoints to arguments adjoints
 
-    //  Single case, chapter 10
-    void propagateOne() 
-{
-		//  Nothing to propagate
-		if (!n || !mAdjoint) return;
+  //  Single case, chapter 10
+  void propagateOne() {
+    //  Nothing to propagate
+    if (!n || !mAdjoint)
+      return;
 
-		for (size_t i = 0; i < n; ++i)
-        {
-			*(pAdjPtrs[i]) += pDerivatives[i] * mAdjoint;
-        }
+    for (size_t i = 0; i < n; ++i) {
+      *(pAdjPtrs[i]) += pDerivatives[i] * mAdjoint;
     }
+  }
 
-    //  Multi case, chapter 14
-    void propagateAll()
-{
-        //  No adjoint to propagate
-        if (!n || all_of(pAdjoints, pAdjoints + numAdj,
-            [](const double& x) { return !x; }))
-            return;
+  //  Multi case, chapter 14
+  void propagateAll() {
+    //  No adjoint to propagate
+    if (!n || all_of(pAdjoints, pAdjoints + numAdj,
+                     [](const double &x) { return !x; }))
+      return;
 
-        for (size_t i = 0; i < n; ++i)
-        {
-            double *adjPtrs = pAdjPtrs[i], ders = pDerivatives[i];
+    for (size_t i = 0; i < n; ++i) {
+      double *adjPtrs = pAdjPtrs[i], ders = pDerivatives[i];
 
-            //  Vectorized!
-            for (size_t j = 0; j < numAdj; ++j)
-            {
-                adjPtrs[j] += ders * pAdjoints[j];
-            }
-        }
+      //  Vectorized!
+      for (size_t j = 0; j < numAdj; ++j) {
+        adjPtrs[j] += ders * pAdjoints[j];
+      }
     }
+  }
 };
