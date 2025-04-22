@@ -19,7 +19,7 @@ As long as this comment is preserved at the top of the file
 //  Thread pool of chapter 3
 
 #include "ConcurrentQueue.h"
-#include <chrono>
+#include <chrono> // IWYU pragma: keep
 #include <future>
 #include <thread>
 
