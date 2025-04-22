@@ -79,7 +79,7 @@ public:
       const double adjoint) const {
     //  Push on the left
     if (LHS::numNumbers > 0) {
-      lhs.pushAdjoint<N, n>(
+      lhs.template pushAdjoint<N, n>(
           exprNode,
           adjoint * OP::leftDerivative(lhs.value(), rhs.value(), value()));
     }
