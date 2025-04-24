@@ -9,6 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS   ON)
 
 if(WIN32)
     message(STATUS "Windows detected")
+    message(STATUS "Toolset: ${CMAKE_GENERATOR_TOOLSET}")
     set(dlloader_include_dir_platform ${CMAKE_SOURCE_DIR}/dl_loader/windows)
     add_compile_definitions(WIN_EXPORT)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG /openmp /Oi")
