@@ -321,3 +321,4 @@ build
 out
 .cache
 .vscode
+build_v*
