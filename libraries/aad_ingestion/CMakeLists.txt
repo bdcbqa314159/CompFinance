@@ -9,5 +9,5 @@ set(sources src/AADNode.cpp
 #               src/ThreadPool.cpp
 )
 
-add_library(${PROJECT_NAME} ${sources})
+add_library(${PROJECT_NAME} SHARED ${sources})
 target_include_directories(${PROJECT_NAME} PUBLIC ${includes} ${common_includes_dir})

@@ -23,6 +23,9 @@ endif()
 
 set(dlloader_include_dir ${CMAKE_SOURCE_DIR}/dl_loader)
 
+find_package(Python3 COMPONENTS Interpreter Development)
+
+find_package(pybind11 REQUIRED)
 
 MESSAGE(STATUS "the source directory is: ${CMAKE_SOURCE_DIR}")
 MESSAGE(STATUS "the binary directory is: ${CMAKE_BINARY_DIR}")

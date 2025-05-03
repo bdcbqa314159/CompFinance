@@ -1,0 +1,7 @@
+#pragma once
+#ifndef PYTHON_INTERFACE_LIB
+#define PYTHON_INTERFACE_LIB
+
+// IWYU pragma: keep
+
+#endif  // PYTHON_INTERFACE_LIB

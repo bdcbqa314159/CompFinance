@@ -15,3 +15,4 @@ set(common_includes_dir ${CMAKE_CURRENT_SOURCE_DIR}/common/)
 # endif()
 
 add_subdirectory(aad_ingestion)
+add_subdirectory(python_interface)
