@@ -1,0 +1,111 @@
+// Code modified by Bernardo Cohen
+// Original code by Antoine Savine
+/*
+Written by Antoine Savine in 2018
+
+This code is the strict IP of Antoine Savine
+
+License to use and alter this code for personal and commercial applications
+is freely granted to any person or company who purchased a copy of the book
+
+Modern Computational Finance: AAD and Parallel Simulations
+Antoine Savine
+Wiley, 2018
+
+As long as this comment is preserved at the top of the file
+*/
+
+#pragma once
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
+
+#include <vector>
+using namespace std;
+
+template <class T> class matrix {
+  size_t myRows;
+  size_t myCols;
+  vector<T> myVector;
+
+public:
+  matrix() : myRows(0), myCols(0) {}
+  matrix(const size_t rows, const size_t cols)
+      : myRows(rows), myCols(cols), myVector(rows * cols) {}
+
+  matrix(const matrix &rhs)
+      : myRows(rhs.myRows), myCols(rhs.myCols), myVector(rhs.myVector) {}
+  matrix &operator=(const matrix &rhs) {
+    if (this == &rhs)
+      return *this;
+    matrix<T> temp(rhs);
+    swap(temp);
+    return *this;
+  }
+
+  template <class U>
+  matrix(const matrix<U> &rhs) : myRows(rhs.rows()), myCols(rhs.cols()) {
+    myVector.resize(rhs.rows() * rhs.cols());
+    copy(rhs.begin(), rhs.end(), myVector.begin());
+  }
+
+  template <class U> matrix &operator=(const matrix<U> &rhs) {
+    if (this == &rhs)
+      return *this;
+    matrix<T> temp(rhs);
+    swap(temp);
+    return *this;
+  }
+
+  matrix(matrix &&rhs)
+      : myRows(rhs.myRows), myCols(rhs.myCols),
+        myVector(std::move(rhs.myVector)) {}
+  matrix &operator=(matrix &&rhs) {
+    if (this == &rhs)
+      return *this;
+    matrix<T> temp(std::move(rhs));
+    swap(temp);
+    return *this;
+  }
+
+  void swap(matrix &rhs) {
+    myVector.swap(rhs.myVector);
+    ::swap(myRows, rhs.myRows);
+    ::swap(myCols, rhs.myCols);
+  }
+
+  void resize(const size_t rows, const size_t cols) {
+    myRows = rows;
+    myCols = cols;
+    if (myVector.size() < rows * cols)
+      myVector = vector<T>(rows * cols);
+  }
+
+  size_t rows() const { return myRows; }
+  size_t cols() const { return myCols; }
+
+  T *operator[](const size_t row) { return &myVector[row * myCols]; }
+  const T *operator[](const size_t row) const {
+    return &myVector[row * myCols];
+  }
+  bool empty() const { return myVector.empty(); }
+
+  typedef typename vector<T>::iterator iterator;
+  typedef typename vector<T>::const_iterator const_iterator;
+  iterator begin() { return myVector.begin(); }
+  iterator end() { return myVector.end(); }
+  const_iterator begin() const { return myVector.begin(); }
+  const_iterator end() const { return myVector.end(); }
+};
+
+template <class T> inline matrix<T> transpose(const matrix<T> &mat) {
+  matrix<T> res(mat.cols(), mat.rows());
+  for (size_t i = 0; i < res.rows(); ++i) {
+    for (size_t j = 0; j < res.cols(); ++j) {
+      res[i][j] = mat[j][i];
+    }
+  }
+
+  return res;
+}
+
+#endif // MATRIX_HPP
