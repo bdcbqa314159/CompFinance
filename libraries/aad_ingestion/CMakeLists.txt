@@ -4,6 +4,7 @@ set(includes includes/)
 
 set(sources src/AADNode.cpp
             src/AADTape.cpp
+            src/analytics.cpp
 #               src/mcBase.cpp
 #               src/sobol.cpp
 #               src/ThreadPool.cpp

@@ -4,6 +4,7 @@
 #include "./includes/AADNode.hpp"         // IWYU pragma: keep
 #include "./includes/AADTape.hpp"         // IWYU pragma: keep
 #include "./includes/ConcurrentQueue.hpp" // IWYU pragma: keep
+#include "./includes/analytics.hpp"       // IWYU pragma: keep
 #include "./includes/blocklist.hpp"       // IWYU pragma: keep
 #include "./includes/gaussians.hpp"       // IWYU pragma: keep
 #include "./includes/matrix.hpp"          // IWYU pragma: keep
