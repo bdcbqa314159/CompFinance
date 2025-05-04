@@ -3,7 +3,7 @@ project(aad_ingestion)
 set(includes includes/)
 
 set(sources src/AADNode.cpp
-#               src/AAD.cpp
+            src/AADTape.cpp
 #               src/mcBase.cpp
 #               src/sobol.cpp
 #               src/ThreadPool.cpp
