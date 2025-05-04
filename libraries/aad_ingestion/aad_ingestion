@@ -1,6 +1,7 @@
 #ifndef AAD_INGESTED_LIBRARY
 #define AAD_INGESTED_LIBRARY
 
-#include "./includes/AADNode.hpp" // IWYU pragma: keep
+#include "./includes/AADNode.hpp"   // IWYU pragma: keep
+#include "./includes/blocklist.hpp" // IWYU pragma: keep
 
 #endif // AAD_INGESTED_LIBRARY
